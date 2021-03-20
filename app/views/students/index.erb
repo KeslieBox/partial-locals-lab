@@ -1,0 +1,9 @@
+
+<h2>Search Students by Name:</h2>
+<%= form_tag students_path, method: :get do %>
+    <%= text_field_tag :search_text, params[:search_text]%>
+    <%= submit_tag "Search Students"%>
+
+<%end%>
+
+<!--- after matching search need to render partial: '/students/student', locals: {student: student}>
