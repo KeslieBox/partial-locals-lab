@@ -1,8 +1,4 @@
 class StudentsController < ApplicationController
-  def index
-    @student = Student.search(params[:search_text])
-  end
-  
   def new
     @student = Student.new
   end
@@ -25,10 +21,11 @@ class StudentsController < ApplicationController
   end
 
   def index
-    @students = Student.all
+    @students = Student.search(params[:query])
+    render 'index'
   end
 
   def student_params
-    params.require(:student).permit(:name, :birthday, :hometown, :search_text)
+    params.require(:student).permit(:name, :birthday, :hometown)
   end
 end
